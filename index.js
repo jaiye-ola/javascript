@@ -98,7 +98,7 @@ const setDate = new Date("2022-12-12");
 console.log(setDate.setFullYear("2026"));
 console.log(setDate.setMonth("3"));
 console.log(setDate.setDate("2"));
-console.log(setDate);
+// console.log(setDate);
 
 // comparing date
 console.log(currentDate > setDate);

@@ -1,104 +1,94 @@
-// More on objects
+// Endpoints are methods that have been prebuilt to perform a function
+// Quotes in JS use single quotes while in JSOn use double quotes 
 
-const person = {
-  name: "Oladipupo",
-  age: 78,
-  is_student: true,
-  greet: function (name) {
-    console.log(`Hello ${name}`)
-  }
-}
+// More on Arrays
 
-console.log(person);
-person.greet("grace");
+const students = [
+  "Tofunmi",
+  "Grace",
+  "Emmanuel",
+  "Oladipupo",
+  "Pauline",
+  "Divine",
+  "Kelechi",
+  "Rex",
+  "Marvellous",
+  "Nelson",
+  "Peace",
+  "Blessing"
+];
 
+// console.log(typeof students);
+console.log("Students: ", students);
+console.log(students[4]);
+console.log(students.length);
+students[9] = "Ben"; 
 
-// Factory functions - used to create multiple objects
-function createPerson (name, age, height, fav_dish) {
-  return {
-    name: name,
-    age: age,
-    height: height,
-    dish: fav_dish,
-    greet: () => {
-      console.log(`Hello ${name}`)
-    }
-  }
-}
+console.log(students.push("Timi"));
+console.log(students.pop());
+console.log(students.unshift("Peace"));
+console.log(students.shift());
 
-const person1 = createPerson("Divine", 34, "5'9", "Pounded Yam");
-person1.greet();
-console.log("Divine object", person1);
+students.splice(9, 2);
+students.splice(9, 2, "Timi");
 
+/*
+  pillars of oop
+  -methods
 
-
-// Constructor functions - used for promises
-
-
-function Person (firstName, lastName, age, dob, state) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.age = age;
-  this.dob = dob;
-  this.state = state;
-  this.changeLastName = (newLastName) => {
-    this.lastName = newLastName;
-  }
-}
-
-const person2 = new Person("Grace", "Ogbonna", 545, "12-12-2012", "Ondo");
-const person3 = new Person("Tofunmi", "Gabriel", 545, "12-12-2012", "Ondo");
-person3.changeLastName("Sodiya");
-console.log("person 2", person2);
-console.log("person 3", person3);
-
-// Cloning objects
-const clone = { ...person };
-console.log("clone", clone);
-
-const assign = Object.assign({}, person)
-console.log(assign);
-
-const strings = new String("Hello World");
-const numbers = new  Number(12);
-console.log(typeof numbers);
-console.log(strings);
-
-// String objects
-const value = "Hello, world";
-const text = " kelechi";
-
-console.log(value.length);
-console.log(value.charAt(2));
-console.log(value.concat(text));
-console.log(value.indexOf("l"));
-console.log(value.lastIndexOf("l"));
-console.log(value.slice(0, 5));
-console.log(value.substring(0, 5));
-console.log(value.toLowerCase(0, 5));
-console.log(value.toUpperCase(0, 5));
-console.log(value.trim());
-console.log(value.split(','));
-console.log(value.replace("world", "emmanuel"));
-console.log(value.startsWith("w"));
-console.log(value.endsWith("d"));
-
-// Date objects
-const currentDate = new Date();
-console.log(currentDate.getFullYear());
-console.log(currentDate.getMonth() + 1);
-console.log(currentDate.getDate());
-console.log(currentDate.getMinutes());
-console.log(currentDate.getHours());
-console.log(currentDate.toLocaleDateString());
-console.log(currentDate);
+*/
 
 
-const setDate = new Date("2022-12-12");
-console.log(setDate.setFullYear("2026"));
-console.log(setDate.setMonth("3"));
-console.log(setDate.setDate("2"));
-// console.log(setDate);
+students.forEach(element => {
+  console.log(element);
+});
 
-// comparing date
-console.log(currentDate > setDate);
+students.map((item) => {
+  console.log(item);
+});
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 34, 77, 6567, 56];
+
+const filteredNumbers = numbers.filter(num => num % 2 == 0);
+console.log("Filtered numbers: ", filteredNumbers);
+
+// Classwork
+// Filter by 3 and 2 with a remainder of 1
+
+// const filteredNumbers = numbers.filter(num => num % 2 == 1 && num % 3 == 1);
+// console.log("Filtered numbers: ", filteredNumbers);
+
+// const reduceNum = numbers.reduce((accumulator, currentValue) => {
+//   accumulator + currentValue
+// }, 0);
+
+
+
+// console.log("Reduced value: ", reduceNum);
+
+const reduceNum = numbers.reduce((accumulator, currentValue) => 
+    accumulator + currentValue
+, 0)
+
+console.log("Reduced num: ", reduceNum);
+
+const avg = reduceNum / numbers.length;
+console.log("Average: ", Math.round(avg));
+
+const someNum = numbers.some(num => num % 2 == 0);
+console.log("findNum: ", someNum);
+
+const everyNum = numbers.every(num => num % 2 == 0);
+console.log("everyNum: ", everyNum);
+
+const sortNum = numbers.sort();
+console.log("Sorted Numbers: ", sortNum);
+
+const sortStud = students.sort();
+console.log("Sorted Students: ", sortStud);
+
+const reverseNum = numbers.reverse();
+console.log("Reversed numbers: ", reverseNum);
+
+const includesNum = numbers.includes(10);
+console.log("Includes 10: ", includesNum);

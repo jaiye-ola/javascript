@@ -1,94 +1,35 @@
-// Endpoints are methods that have been prebuilt to perform a function
-// Quotes in JS use single quotes while in JSOn use double quotes 
+// ES6 OOP (Object Oriented Programming)
 
-// More on Arrays
-
-const students = [
-  "Tofunmi",
-  "Grace",
-  "Emmanuel",
-  "Oladipupo",
-  "Pauline",
-  "Divine",
-  "Kelechi",
-  "Rex",
-  "Marvellous",
-  "Nelson",
-  "Peace",
-  "Blessing"
-];
-
-// console.log(typeof students);
-console.log("Students: ", students);
-console.log(students[4]);
-console.log(students.length);
-students[9] = "Ben"; 
-
-console.log(students.push("Timi"));
-console.log(students.pop());
-console.log(students.unshift("Peace"));
-console.log(students.shift());
-
-students.splice(9, 2);
-students.splice(9, 2, "Timi");
-
-/*
-  pillars of oop
-  -methods
-
-*/
+// Pillars of OOP
+// Polymorphism
+// Abstraction
+// Inheritance //
+// Encapsulation
 
 
-students.forEach(element => {
-  console.log(element);
-});
+class User {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+}
 
-students.map((item) => {
-  console.log(item);
-});
-
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 34, 77, 6567, 56];
-
-const filteredNumbers = numbers.filter(num => num % 2 == 0);
-console.log("Filtered numbers: ", filteredNumbers);
-
-// Classwork
-// Filter by 3 and 2 with a remainder of 1
-
-// const filteredNumbers = numbers.filter(num => num % 2 == 1 && num % 3 == 1);
-// console.log("Filtered numbers: ", filteredNumbers);
-
-// const reduceNum = numbers.reduce((accumulator, currentValue) => {
-//   accumulator + currentValue
-// }, 0);
+const user1 = new User("Tofunmi", "Emmanuel", 56);
+console.log(user1);
 
 
+class Profile extends User {// inheritance
+  constructor(firstName, lastName, age, membership, gender) {
+    super(firstName, lastName, age) 
+      this.membership = membership;
+      this.gender = gender;
+      
+  }
+}
 
-// console.log("Reduced value: ", reduceNum);
-
-const reduceNum = numbers.reduce((accumulator, currentValue) => 
-    accumulator + currentValue
-, 0)
-
-console.log("Reduced num: ", reduceNum);
-
-const avg = reduceNum / numbers.length;
-console.log("Average: ", Math.round(avg));
-
-const someNum = numbers.some(num => num % 2 == 0);
-console.log("findNum: ", someNum);
-
-const everyNum = numbers.every(num => num % 2 == 0);
-console.log("everyNum: ", everyNum);
-
-const sortNum = numbers.sort();
-console.log("Sorted Numbers: ", sortNum);
-
-const sortStud = students.sort();
-console.log("Sorted Students: ", sortStud);
-
-const reverseNum = numbers.reverse();
-console.log("Reversed numbers: ", reverseNum);
-
-const includesNum = numbers.includes(10);
-console.log("Includes 10: ", includesNum);
+const profile1 = new Profile("Tofunmi", "Emmanuel", 56);
+console.log("profile", profile1);
+profile1.calcAge();//abstraction
+profile1.cangeName("grace");
+// 

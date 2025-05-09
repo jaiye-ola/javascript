@@ -118,3 +118,50 @@ function displayList2() {
 runAsyncAddBookList({id: 2, name: "Advanced HTML", author: "Grace", newShelf}, displayList2)
     .then(displayList2())
     .catch(error => console.log("Something went wrong"))
+
+
+// JSON is how we get out response from API
+
+const person = {
+  name: "John Doe",
+  age: 56
+}
+
+const stringify = JSON.stringify(person);
+console.log(person);
+
+const parseObject = JSON.parse(stringify);
+console.log(parseObject);
+console.log(person);
+
+// Communicate to the server using the fetch API
+// txt file
+// json file
+// fetch from json placeholder
+
+// get text from txt file 
+
+document.querySelector("#json").addEventListener("click", function() {
+  fetch("db.json")
+    .then(res => {
+      if (res.ok) {
+        return res.text()
+      }
+    } )
+    .then(data => {
+      let value;
+
+      data.map(items => 
+        value += `
+                <li>${items.name}</li>
+                <li>${items.email}</li>
+                <li>${items.location}</li>
+                <li>${items.address}</li>
+        ` )
+
+      document.querySelector("#result").innerHTML = data;
+    })
+    .catch(error => {
+      document.querySelector("#result").innerHTML = error;
+    })
+})
